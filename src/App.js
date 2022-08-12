@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import DemoFunctionCom from "./Components/DemoComponent/DemoFunctionCom";
+import DemoClassCom from "./Components/DemoComponent/DemoClassCom";
+import BaiTapLayout from "./Components/BaiTapLayout/BaiTapLayout";
+import Databinding from "./Databinding/Databinding";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <h1>Hello cybersoft</h1>
+      <DemoFunctionCom />
+      <div className="w-25">
+        <DemoClassCom />
+      </div> */}
+      {/* <BaiTapLayout /> */}
+      <Databinding />
     </div>
   );
 }
