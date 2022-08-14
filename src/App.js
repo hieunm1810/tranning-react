@@ -4,6 +4,7 @@ import DemoFunctionCom from "./Components/DemoComponent/DemoFunctionCom";
 import DemoClassCom from "./Components/DemoComponent/DemoClassCom";
 import BaiTapLayout from "./Components/BaiTapLayout/BaiTapLayout";
 import Databinding from "./Databinding/Databinding";
+import BaiTapReactB1 from "./BaiTapReactB1/BaiTapReactB1";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
         <DemoClassCom />
       </div> */}
       {/* <BaiTapLayout /> */}
-      <Databinding />
+      {/* <Databinding /> */}
+      <BaiTapReactB1 />
     </div>
   );
 }
