@@ -1,0 +1,75 @@
+.wrapper {
+    background: url("./assets/background.jpg") no-repeat center / cover;
+    height: 100vh;
+    position: relative;
+
+    &__overlay {
+        background-color: rgba($color: #000000, $alpha: 0.4);
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+    }
+
+    h1 {
+        position: relative;
+        z-index: 2;
+        background-color: rgba($color: #000000, $alpha: 0.6);
+        margin-bottom: 100px;
+    }
+
+    &__img {
+        position: relative;
+        z-index: 2;
+        max-width: 60%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 50px;
+
+        &-item {
+            flex-basis: 30%;
+            position: relative;
+
+            img.model {
+                max-width: 100%;
+            }
+
+            img.glasses {
+                position: absolute;
+                max-width: 55%;
+                top: 26.5%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            &-detail {
+                position: absolute;
+                bottom: 0;
+                background-color: rgba($color: #6a8746, $alpha: 0.4);
+                padding: 10px 0;
+
+                h5 {
+                    color: rgb(99, 99, 223);
+                }
+
+                p {
+                    color: #fff
+                }
+            }
+        }
+    }
+
+    &__glasses {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 20px;
+        position: relative;
+        z-index: 2;
+        gap: 20px;
+
+        img {
+            max-width: calc(100%/7);
+        }
+    }
+
+}
