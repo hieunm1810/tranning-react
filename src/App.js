@@ -1,47 +1,42 @@
-import logo from "./logo.svg";
 import "./App.css";
-import DemoFunctionCom from "./Components/DemoComponent/DemoFunctionCom";
-import DemoClassCom from "./Components/DemoComponent/DemoClassCom";
-import BaiTapLayout from "./Components/BaiTapLayout/BaiTapLayout";
-import Databinding from "./Databinding/Databinding";
-import BaiTapReactB1 from "./BaiTapReactB1/BaiTapReactB1";
-import HandleEvent from "./HandleEvent/HandleEvent";
-import StyleWithJSX from "./StyleWithJSX/StyleWithJSX";
-import StateDemo from "./StateDemo/StateDemo/StateDemo";
-import BaiTapReactB2 from "./BaiTapReactB2/BaiTapReactB2";
-import RenderWithMap from "./RenderWithMap/RenderWithMap";
-import LayoutFilm from "./RenderWithMap/LayoutFilm";
-import DemoProps from "./Props/DemoProps/DemoProps";
-import ShoesShop from "./ShoesShop/ShoesShop";
-import DemoXemChiTiet from "./Props/DemoXemChiTiet/DemoXemChiTiet";
-import ExerciseCarStore from "./Props/ExcerciseCarStore/ExerciseCarStore";
-import BaiTapReactProps from "./BaiTapReactProps/BaiTapReactProps";
-
+import { NavLink, Outlet } from "react-router-dom";
 function App() {
-  return (
-    <div className="App">
-      {/* <h1>Hello cybersoft</h1>
-      <DemoFunctionCom />
-      <div className="w-25">
-        <DemoClassCom />
-      </div> */}
-      {/* <BaiTapLayout /> */}
-      {/* <Databinding /> */}
-      {/* <BaiTapReactB1 /> */}
-      {/* <HandleEvent /> */}
-      {/* <StyleWithJSX /> */}
-      {/* <StateDemo /> */}
-      {/* <BaiTapReactB2 /> */}
-      {/* <RenderWithMap /> */}
-      {/* <LayoutFilm /> */}
-      {/* <DemoProps /> */}
-      {/* <ShoesShop /> */}
-      {/* <DemoXemChiTiet /> */}
-      {/* <ExerciseCarStore /> */}
-      <BaiTapReactProps />
-      
-    </div>
-  );
+  return <div className="App">
+    <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+      <NavLink className="navbar-brand" to="/">Cybersoft</NavLink>
+      <button className="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation" />
+      <div className="collapse navbar-collapse" id="collapsibleNavId">
+        <ul className="navbar-nav me-auto mt-2 mt-lg-0">
+          <li className="nav-item active">
+            <NavLink style={({isActive}) => isActive ? {borderRadius: "5px"} : {}} className={({ isActive }) => "nav-link" + (isActive ? " bg-light text-dark" : "")} to="/">Home <span className="visually-hidden">(current)</span></NavLink>
+          </li>
+          <li className="nav-item">
+            {/* Su dung navlink de load nhanh hon, vi chi load lai 1 component do thoi, chu khong phai load lai ca trang 
+              -isActive chinh la mot bien duoc destructuring cua object duoc truyen vao classname (- func) tu phia NavLink thong qua props
+            */}
+            <NavLink style={({isActive}) => isActive ? {borderRadius: "5px"} : {}} className={({isActive}) => "nav-link" + (isActive ? " bg-light text-dark" : "")} to="/about">About</NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink style={({isActive}) => isActive ? {borderRadius: "5px"} : {}} className={({ isActive }) => "nav-link" + (isActive ? " bg-light text-dark" : "")} to="/contact">Contact</NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink style={({isActive}) => isActive ? {borderRadius: "5px"} : {}} className={({ isActive }) => "nav-link" + (isActive ? " bg-light text-dark" : "")} to="/reactForm">React Form</NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink style={({isActive}) => isActive ? {borderRadius: "5px"} : {}} className={({ isActive }) => "nav-link" + (isActive ? " bg-light text-dark" : "")} to="/lifecycle">React Lifecycle</NavLink>
+          </li>
+          
+        </ul>
+        <form className="d-flex my-2 my-lg-0">
+          <input className="form-control me-sm-2" type="text" placeholder="Search" />
+          <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+    {/* Vi tri component se duoc load o link con */}
+    <Outlet />
+  </div>;
 }
 
 export default App;
