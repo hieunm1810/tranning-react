@@ -10,28 +10,38 @@ import Home from "./pages/Home/Home";
 import ReactForm from "./pages/ReactForm/ReactForm";
 import Page404 from "./pages/Page404/Page404";
 import ReactLifeCycle from "./pages/ReactLifeCycle/ReactLifeCycle";
-
+//Cai dat redux
+import { Provider } from "react-redux";
+import { store } from "./redux/configStore";
+import DemoTangGiamSL from "./pages/DemoRedux/DemoTangGiamSL/DemoTangGiamSL";
+import DemoChonXe from "./pages/DemoRedux/DemoChonXe/DemoChonXe";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <Routes>
-      {/* path la dinh nghia duong link de co the vao component nao do */}
-      <Route path="" element={<App />}>
-        {/* hai cach dinh nghia load ra home */}
-        <Route index element={<Home />}></Route>
-        {/* <Route path="" element={<Home />}></Route> */}
-        <Route path="contact" element={<Contact />}></Route>
-        <Route path="about" element={<About />}></Route>
-        <Route path="reactForm" element={<ReactForm />}></Route>
-        <Route path="lifecycle" element={<ReactLifeCycle />}></Route>
-        {/* CACH XU LY KHI USER NHAP URL TAO LAO */}
-        {/* C1 */}
-        {/* <Route path="*" element={<Page404 />}></Route> */}
-        {/* C2 */}
-        <Route path="*" element={<Navigate to="" />}></Route>
-      </Route>
-      {/* <Route path="contact" element={<Contact />}></Route> */}
-    </Routes>
-  </BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+      <Routes>
+        {/* path la dinh nghia duong link de co the vao component nao do */}
+        <Route path="" element={<App />}>
+          {/* hai cach dinh nghia load ra home */}
+          <Route index element={<Home />}></Route>
+          {/* <Route path="" element={<Home />}></Route> */}
+          <Route path="contact" element={<Contact />}></Route>
+          <Route path="about" element={<About />}></Route>
+          <Route path="reactForm" element={<ReactForm />}></Route>
+          <Route path="lifecycle" element={<ReactLifeCycle />}></Route>
+          <Route path="demonumber" element={<DemoTangGiamSL />}></Route>
+          <Route path="demochonxe" element={<DemoChonXe />}></Route>
+          
+          {/* CACH XU LY KHI USER NHAP URL TAO LAO */}
+          {/* C1 */}
+          {/* <Route path="*" element={<Page404 />}></Route> */}
+          {/* C2 */}
+          <Route path="*" element={<Navigate to="" />}></Route>
+        </Route>
+        {/* <Route path="contact" element={<Contact />}></Route> */}
+      </Routes>
+    </BrowserRouter>
+  </Provider>
+
 );
 //jsx-javascript extension

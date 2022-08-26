@@ -16,6 +16,7 @@ export default class Child extends PureComponent {
 
     static getDerivedStateFromProps(newProps, currentState) {
         console.log("getDrivedStateFromProps child");
+        console.log(currentState);
         return null;
     }
 
@@ -33,14 +34,20 @@ export default class Child extends PureComponent {
 
     render() {
         console.log("render");
+        // console.log(this.props);
         return (
             <div className="container p-5 display-4 bg-dark text-white">
-                <h2>Child component: {this.props.number}</h2>
+                <h2>Child component: {this.props.objectNumber.number}</h2>
             </div>
         )
+        
     }
 
     componentDidMount() {
         console.log("componentdidmount child");
+    }
+
+    componentDidUpdate(prepProps, prevState) {
+
     }
 }

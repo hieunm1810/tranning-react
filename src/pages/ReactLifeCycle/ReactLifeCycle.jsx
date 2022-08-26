@@ -9,15 +9,21 @@ export default class ReactLifeCycle extends Component {
         super(props);
         this.state = {
             number: 1,
-            like: 1
+            like: 1,
+
+            objectNumber: {
+                number: 1
+            },
+            count: 60
         }
         console.log("constructor");
     }
 
     static getDerivedStateFromProps(newProps, currentState) {
         console.log("getDrivedStateFromProps");
+        console.log(currentState);
         // currentState.number = 20;
-        return currentState;
+        return null;
         //return ở đây như kiểu thông báo là props state có gì update hay không, chứ có vẻ ko tác động vào state.
     }
 
@@ -31,26 +37,52 @@ export default class ReactLifeCycle extends Component {
         console.log("render");
         return (
             <div className="container">
-                <h3>Number: {this.state.number}</h3>
+                <h3>Number: {this.state.objectNumber.number}</h3>
                 <button className="btn btn-success" onClick={() => {
+                    let objectNumber = { ...this.state.objectNumber };
+                    console.log(objectNumber);
+                    //hoac su dung let objectNumber = {...this.state.objectNumber} thay spread attribute
+                    objectNumber.number++;
                     this.setState({
-                        number: this.state.number + 1
+                        objectNumber: objectNumber
                     });
                 }}>+</button>
                 <h3>Like: {this.state.like}</h3>
-                <button className="btn btn-success" onClick={() => {
+                <button className="btn btn-success" onClick={(event) => {
                     this.setState({
                         like: this.state.like + 1
                     })
                 }}>Like</button>
-                <Child number={this.state.number} />
+                <Child objectNumber={this.state.objectNumber} />
+                <br />
+                Count: {this.state.count}
             </div>
         )
     }
-
+    timeout = {};
     componentDidMount() {
         console.log("componentdidmount");
         //tuong tu window.onload
+        // chỉ chạy 1 lần khi component load lần đầu tiên
+        // this.timeout = setInterval(() => {
+        //     this.setState({
+        //         count: this.state.count - 1,
+        //     })
+        //     console.log(this.state.count);
+        // }, 1000)
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        //handle sau khi component gọi render
+        //Tuy nhiên hạn chế setState tại đây => setState phải có lệnh if
+        console.log(prevProps);
+        console.log(prevState);
+    }
+
+    componentWillUnmount() {
+        //component mất đi khi đạt tới một điều kiện gì cho dev quy định hoặc chuyển root
+        //trước khi component mất khỏi giao diện => clear tất cả script chạy ngầm
+        clearInterval(this.timeout);
     }
 }
 
