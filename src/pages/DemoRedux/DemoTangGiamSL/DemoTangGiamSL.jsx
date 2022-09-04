@@ -29,7 +29,7 @@ const mapStateToProps = (state) => {
   //return  về obj gì thì obj đó sẽ là props của component
   return {
     number: state.number,
-    state: state,
+    // state: state,
   };
 };
 
@@ -42,5 +42,5 @@ export default connect(mapStateToProps)(DemoTangGiamSL);
     function có 1 lệnh return về object thì viết tắt
     (param) => {return{props1:...}}
     => (param) => ({})
-    {return...}: sẽ được chuyển thành ()}
+    {return...}: sẽ được chuyển thành ({})
  */

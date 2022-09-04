@@ -1,25 +1,23 @@
 import { createStore, combineReducers } from "redux";
+import burgerReducer from "./reducers/burgerReducer";
+import { commentReducer } from "./reducers/commentReducer";
+import { imgCarReducer } from "./reducers/imgCarReducer";
+import { numberReducer } from "./reducers/numberReducer";
+import sinhVienReducer from "./reducers/sinhVienReducer";
 
 const rootReducer = combineReducers({
   //Nơi chứa các state của ứng dụng
-  number: (state = 10, action) => {
-    switch (action.type) {
-      case "TANG_SL": {
-        //B1: Lấy giá trị payload từ action gửi lên
-        const { payload } = action;
-        //B2: Thay đổi state
-        state += payload;
-        //B3: return về state mới
-        return state;
-      }
-    }
-
-    return state;
-  },
+  //Khi dispatch thi tat ca cac reducer se chay, nen phai co phan kiem tra de xem no vao reducer nao
+  number: numberReducer,
 
   stateA: (state = "abc") => {
     return state;
   },
+
+  img: imgCarReducer,
+  commentReducer: commentReducer,
+  burgerReducer: burgerReducer,
+  sinhVienReducer: sinhVienReducer,
 });
 
 export const store = createStore(

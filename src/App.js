@@ -32,6 +32,9 @@ function App() {
             <ul className="dropdown-menu">
               <li><NavLink className="dropdown-item" to={"/demonumber"}>Demo number</NavLink></li>
               <li><NavLink className="dropdown-item" to={"/demochonxe"}>Demo Chọn Xe</NavLink></li>
+              <li><NavLink className="dropdown-item" to={"/demoform"}>Demo Form</NavLink></li>
+              <li><NavLink className="dropdown-item" to={"/demoburger"}>Demo Burger</NavLink></li>
+              <li><NavLink className="dropdown-item" to={"/btformredux"}>BTReactFormRedux</NavLink></li>
             </ul>
           </li>
 

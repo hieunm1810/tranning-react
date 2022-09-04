@@ -1,7 +1,7 @@
 import React from "react"; //thu vien nay se giup bien dich cac code html duoi dinh dang js
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import "./index.scss"; //import o day de app dung toan trang, vi co che single page
+import "./assets/scss/style.scss"; //import o day de app dung toan trang, vi co che single page
 //Cấu hình react-router-dom
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Contact from "./pages/Contact/Contact";
@@ -15,6 +15,9 @@ import { Provider } from "react-redux";
 import { store } from "./redux/configStore";
 import DemoTangGiamSL from "./pages/DemoRedux/DemoTangGiamSL/DemoTangGiamSL";
 import DemoChonXe from "./pages/DemoRedux/DemoChonXe/DemoChonXe";
+import DemoFormComment from "./pages/DemoRedux/DemoFormComment/DemoFormComment";
+import DemoBurger from "./pages/DemoRedux/DemoBurger/DemoBurger";
+import BaiTapFormRedux from "./pages/DemoRedux/BaiTapFormRedux/BaiTapFormRedux";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
@@ -31,6 +34,9 @@ root.render(
           <Route path="lifecycle" element={<ReactLifeCycle />}></Route>
           <Route path="demonumber" element={<DemoTangGiamSL />}></Route>
           <Route path="demochonxe" element={<DemoChonXe />}></Route>
+          <Route path="demoform" element={<DemoFormComment />}></Route>
+          <Route path="demoburger" element={<DemoBurger />}></Route>
+          <Route path="btformredux" element={<BaiTapFormRedux />}></Route>
           
           {/* CACH XU LY KHI USER NHAP URL TAO LAO */}
           {/* C1 */}
